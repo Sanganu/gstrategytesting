@@ -4,7 +4,7 @@ const router = require("express").Router();
 // Auth Login
 router.get("/login",(req,res) => {
    console.log("/login");
-   res.send('login with google');
+   res.render('login');
 });
 
 router.get('/google',(req,res) => {
