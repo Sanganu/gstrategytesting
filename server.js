@@ -11,7 +11,7 @@ const passportSetup = require('./config/passport_setup');
 app.set("view engine","ejs");
 
 //Routes setup
-app.get("/",(req,res) => {s
+app.get("/",(req,res) => {
     console.log("The Home route");
     res.render("home");
 });
