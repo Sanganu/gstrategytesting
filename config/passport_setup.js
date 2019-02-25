@@ -10,4 +10,4 @@ passport.use(new GoogleStrategy({
 },()=>{
    // Callback function after we get response from google
    
-})
+}));
