@@ -21,8 +21,11 @@ router.get("/logout",(req,res) => {
 router.get("/google/redirect",passport.authenticate('google'),(req,res) => {
     // console.log("Redirect - Request",req.profile);
     // console.log("Redirect - Response",res);
-    res.json({"Authenticate":"Redirect uri reached"})
+   // res.json({"Authenticate":req.user}) // Now the req.user will have the details in the request.
+    res.redirect("/loggedin/verifieduser")
 });
+
+
 
 module.exports =  router;
   

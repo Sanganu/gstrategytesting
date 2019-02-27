@@ -37,6 +37,7 @@ app.get("/",(req,res) => {
     res.render("home");
 });
 app.use('/auth',require("./routes/auth_routes"));
+app.use("/loggedin", require("./routes/loggedinroutes"));
 
 // App listening on Port
 app.listen(PORT,function(){

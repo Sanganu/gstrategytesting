@@ -20,7 +20,7 @@ passport.use(new GoogleStrategy({
          if(currentUser)
          {
              console.log("User Info already exist");
-             return done(null,currentUser);
+             return done(null,currentUser._id);
          }
          else{
             new userAccount({
@@ -45,7 +45,7 @@ passport.serializeUser((userid,done) => {
 
 
 //clear cookie find the user by id
-passport.deserializeUser((user,done) => {
+passport.deserializeUser((userid,done) => {
     userAccount.findById({userid}).then((user) =>{
         done(null, user)
     });
