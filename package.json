@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Sanganu/gstrategytesting#readme",
   "dependencies": {
+    "cookie-session": "^2.0.0-beta.3",
     "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",

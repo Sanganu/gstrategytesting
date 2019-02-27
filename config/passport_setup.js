@@ -19,7 +19,8 @@ passport.use(new GoogleStrategy({
      .then((currentUser) => {
          if(currentUser)
          {
-             console.log("User Info already exist")
+             console.log("User Info already exist");
+             return done(null,currentUser);
          }
          else{
             new userAccount({
@@ -27,7 +28,7 @@ passport.use(new GoogleStrategy({
                 googleId: profile.id
             }).save().then((newUser)=>{
                console.log("User Details saved to mongoose",newUser);
-               return done(null,profile);
+               return done(null,newUser); //null- error first
             }) ;
        
          }
@@ -35,3 +36,18 @@ passport.use(new GoogleStrategy({
   
     
 }));
+
+//setting a cookie with just user.id this gets called from google strategy callback
+passport.serializeUser((userid,done) => {
+    done(null, userid)
+});
+
+
+
+//clear cookie find the user by id
+passport.deserializeUser((user,done) => {
+    userAccount.findById({userid}).then((user) =>{
+        done(null, user)
+    });
+  
+ });

@@ -2,16 +2,31 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8000;
 const mongoose = require('mongoose');
+const coookieSession = require("cookie-session");
+const keys = require('./config/keys.js');
+const passport = require('passport');
 
 //Connect to MongoDb using mongoose
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gstralogin",{ useNewUrlParser: true },() => {
     console.log("Connected to MongoDB");
 });
 
-//API from .env and setup google strategy
+
+//API from .env 
 require('dotenv').config();
+
+//setup google strategy - passport.js 
 const passportSetup = require('./config/passport_setup');
 
+//Cookie
+app.use(coookieSession({
+    maxAge: 24*60*60*1000,
+    keys: [keys.session.cookieKey ]
+}));
+
+//Initialize Passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 //View Engines
 app.set("view engine","ejs");
