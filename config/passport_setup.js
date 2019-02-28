@@ -48,7 +48,8 @@ passport.serializeUser((user,done) => {
 // find the user by id given by the browser
 passport.deserializeUser((userid,done) => {
     console.log("Deserialize user",userid);
-    userAccount.findById({userid}).then((user) =>{
+    userAccount.findOne({_id:userid}).then((user) =>{
+        console.log("USer details - Des",user);
         done(null, user)
     });
   
