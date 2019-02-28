@@ -4,7 +4,7 @@ const passport = require('passport');
 // Auth Login
 router.get("/login", (req, res) => {
     console.log("/login");
-    res.render('login');
+    res.render('login',{user:""});
 });
 
 //Use Google strategy to authenticate the user
@@ -15,6 +15,15 @@ router.get('/google', passport.authenticate('google', {
 router.get("/logout", (req, res) => {
     console.log("/logout");
     req.logOut();
+    res.redirect("/");
+});
+
+router.get("/profile",(req,res) => {
+   console.log("Profile page USer",req.user);
+   if(req.user)
+   res.send(req.user);
+   else
+   res.redirect("/auth/login");
 });
 
 // With the redirect url, exchange token for profile info. here we don't get the google login screen

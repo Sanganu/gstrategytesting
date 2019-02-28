@@ -14,13 +14,29 @@
         crossorigin="anonymous"></script>
  </head>
  <body>
-     <nav>
-         <ul>
-             <li><a href="/auth/login">Login</a></li>
-             <li><a href="/auth/logout">Logout</a></li>
-             <li><a href="/">Home</a></li>
-         </ul>
-     </nav>
+        <nav>
+                <ul>
+                    <li>
+                        <a href="/">HomePage - Google OAuth</a>
+                    </li>
+                   <% if(user) {%>
+                      <li>
+                            <a href="/auth/logout">Logout</a>
+                      </li>
+                    <% } else  { %>
+                      <li>
+                                <a href="/auth/login">Login</a>
+                      </li>
+                    <% } %>
+                       <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                             <a href="/auth/profile">Profile</a>
+                        </li>
+        
+                </ul>
+            </nav>
      <header>
          <h1>Google Login Page</h1>
      </header>

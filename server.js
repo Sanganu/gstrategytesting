@@ -28,7 +28,7 @@ app.set("view engine","ejs");
 //Routes setup
 app.get("/",(req,res) => {
     console.log("The Home route");
-    res.render("home");
+    res.render("home",{user:""});
 });
 app.use('/auth',require("./routes/auth_routes"));
 
