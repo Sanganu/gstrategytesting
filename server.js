@@ -18,12 +18,6 @@ require('dotenv').config();
 //setup google strategy - passport.js 
 const passportSetup = require('./config/passport_setup');
 
-//Cookie
-app.use(coookieSession({
-    maxAge: 24*60*60*1000,
-    keys: [keys.session.cookieKey ]
-}));
-
 //Initialize Passport
 app.use(passport.initialize());
 app.use(passport.session());
@@ -37,7 +31,16 @@ app.get("/",(req,res) => {
     res.render("home");
 });
 app.use('/auth',require("./routes/auth_routes"));
-app.use("/loggedin", require("./routes/loggedinroutes"));
+
+
+//Cookie
+app.use(coookieSession({
+    maxAge: 2*60*60*1000,
+    keys: [keys.session.cookieKey ] // The array stores the keys
+}));
+
+
+
 
 // App listening on Port
 app.listen(PORT,function(){

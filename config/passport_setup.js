@@ -14,13 +14,13 @@ passport.use(new GoogleStrategy({
    // Callback function after we get response from google
      console.log("Access Token -",accessToken);
      console.log("RefreshToken --",refreshToken);
-     console.log("Profile Information --",profile);
+     //console.log("Profile Information --",profile);
      userAccount.findOne({googleId:profile.id})
      .then((currentUser) => {
          if(currentUser)
          {
-             console.log("User Info already exist");
-             return done(null,currentUser._id);
+             console.log("User Info already exist",currentUser);
+             return done(null,currentUser);
          }
          else{
             new userAccount({
@@ -37,15 +37,17 @@ passport.use(new GoogleStrategy({
     
 }));
 
-//setting a cookie with just user.id this gets called from google strategy callback
-passport.serializeUser((userid,done) => {
-    done(null, userid)
+//setting a cookie with just user.id and sent to browser this gets called from google strategy callback
+passport.serializeUser((user,done) => {
+    console.log("Serialize User --",user._id);
+    done(null, user._id)
 });
 
 
 
-//clear cookie find the user by id
+// find the user by id given by the browser
 passport.deserializeUser((userid,done) => {
+    console.log("Deserialize user",userid);
     userAccount.findById({userid}).then((user) =>{
         done(null, user)
     });
