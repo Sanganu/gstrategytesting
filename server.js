@@ -43,12 +43,6 @@ app.get("/",(req,res) => {
 app.use('/auth',require("./routes/auth_routes"));
 
 
-
-
-
-
-
-
 // App listening on Port
 app.listen(PORT,function(){
     console.log(`Passport GoogleStrategy app running on ${PORT}`);
