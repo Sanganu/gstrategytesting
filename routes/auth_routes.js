@@ -21,9 +21,9 @@ router.get("/logout", (req, res) => {
 router.get("/profile",(req,res) => {
    console.log("Profile page USer",req.user);
    if(req.user)
-   res.send(req.user);
+       res.send(req.user);
    else
-   res.redirect("/auth/login");
+       res.redirect("/auth/login");
 });
 
 // With the redirect url, exchange token for profile info. here we don't get the google login screen
