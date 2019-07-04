@@ -25,13 +25,17 @@
             <li><a href="/auth/profile">Profile</a></li>
         </ul>
     </nav>
-    <header>
-        <h1>Welcome,<%=user.userName %></h1>
-    </header>
+    
     <main>
-        <div>
-           
-      
+        <div class="card">
+            <div class="card-reveal">
+                <p class="card-title grey-text text-darken-4">>Welcome,<%=user.userName %></p>
+                       
+            </div>
+            <%= user %>
+            <div  class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="" />
+            </div>
                
         </div>
    

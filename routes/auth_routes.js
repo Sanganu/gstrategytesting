@@ -35,7 +35,9 @@ router.get("/google/redirect", passport.authenticate('google'), (req, res) => {
         res.render("dashboard", { user: req.user })
     }
     else {
-        res.redirect("/auth/login")
+        res.redirect("/auth/login");
+        // res.redirect("/login")
+
     }
 });
 

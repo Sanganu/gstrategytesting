@@ -42,6 +42,9 @@ app.get("/",(req,res) => {
 });
 app.use('/auth',require("./routes/auth_routes"));
 
+app.get("/google/consent",(req,res) => {
+   res.render("consent",{"acceptusage":true})
+});
 
 // App listening on Port
 app.listen(PORT,function(){
