@@ -13,4 +13,5 @@ This uses dot-env package to store Google+ Oauth credentials. To use this projec
  
 App Deployed at:http://googlestrategy.herokuapp.com/
 
+Code written by: Sangeetha Kaliaperumal
 
