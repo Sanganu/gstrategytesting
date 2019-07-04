@@ -22,38 +22,42 @@
             <li>
                 <a href="/">HomePage - Google OAuth</a>
             </li>
-           <% if(user) {%>
-              <li>
-                    <a href="/auth/logout">Logout</a>
-              </li>
-            <% } else  { %>
-              <li>
-                        <a href="/auth/login">Login</a>
-              </li>
-            <% } %>
-               <li>
-                    <a href="/">Home</a>
-                </li>
+            <% if(user) {%>
                 <li>
-                     <a href="/auth/profile">Profile</a>
+                    <a href="/auth/logout">Logout</a>
                 </li>
-
+                <% } else  { %>
+                    <li>
+                        <a href="/auth/login">Login</a>
+                    </li>
+                    <% } %>
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/auth/profile">Profile</a>
+                        </li>
+                        <li>
+                            <a href="/google/consent">Consent</a>
+                        </li>
         </ul>
     </nav>
     <header>
         <h1>Login using - Google Strategy</h1>
-   
+
     </header>
 
     <main>
         <div class="container">
-            <p>This app is to implement passport.js - google strategy. This helps app request
-                user public profile from google and displays on the page.
+            <p>This app is to implement passport.js - google strategy. This helps app request user public profile from google
+                and displays on the page.
             </p>
-            <p>Consent Accepted:<%= acceptusage %></p>
+            <p>Consent Accepted:
+                <%= acceptusage %>
+            </p>
         </div>
 
-        
+
     </main>
 
 </body>

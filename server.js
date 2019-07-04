@@ -40,11 +40,21 @@ app.get("/",(req,res) => {
     console.log("The Home route");
     res.render("home",{user:""});
 });
+
+//Auth Routes -
 app.use('/auth',require("./routes/auth_routes"));
 
+//Consent 
 app.get("/google/consent",(req,res) => {
    res.render("consent",{"acceptusage":true})
 });
+
+//Default
+app.get("/*",(req,res) => {
+    res.render("home",{user:""});
+});
+
+
 
 // App listening on Port
 app.listen(PORT,function(){

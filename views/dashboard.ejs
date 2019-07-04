@@ -23,16 +23,19 @@
             <% } %>
             <li><a href="/">Home</a></li>
             <li><a href="/auth/profile">Profile</a></li>
+            <li>
+                    <a href="/auth/profile">Profile</a>
+               </li>
         </ul>
     </nav>
     
     <main>
         <div class="card">
             <div class="card-reveal">
-                <p class="card-title grey-text text-darken-4">>Welcome,<%=user.userName %></p>
+                <h5 class="card-title grey-text text-darken-4">Welcome,<%=user.userName %></h5>
                        
             </div>
-            <%= user %>
+ 
             <div  class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="" />
             </div>

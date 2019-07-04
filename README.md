@@ -11,5 +11,6 @@ Packages needed
 This uses dot-env package to store Google+ Oauth credentials. To use this project create a ".env" file with 2 variables GOOGLE_CLIENT_ID AND GOOGLE_CLIENT_SECRET.
 
  
+App Deployed at:http://googlestrategy.herokuapp.com/
 
 
